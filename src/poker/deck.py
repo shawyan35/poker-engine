@@ -16,5 +16,7 @@ class Deck:
             raise ValueError("Not enough cards left in the deck")
             
         return [self.cards.pop() for _ in range(n)]
+    def __iter__(self):
+        return iter(self.cards)
 
 

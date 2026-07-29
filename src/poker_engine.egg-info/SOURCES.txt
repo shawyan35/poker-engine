@@ -8,3 +8,4 @@ src/poker_engine.egg-info/SOURCES.txt
 src/poker_engine.egg-info/dependency_links.txt
 src/poker_engine.egg-info/top_level.txt
 tests/test_card.py
+tests/test_deck.py
