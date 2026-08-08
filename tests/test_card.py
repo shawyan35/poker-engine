@@ -7,5 +7,5 @@ def test_string_to_card():
     assert str(Ace_Of_Spades) == "As"
     assert str(Five_Of_Diamonds) == "5d"
 
-def comparison():
+def test_rank_comparison():
     assert Ace_Of_Spades.rank > Five_Of_Diamonds.rank
