@@ -28,3 +28,20 @@ def _check_flush(cards: list[Card]) -> tuple[HandRank, list[int]] | None:
             return (HandRank.FLUSH, [c.rank for c in sorted_cards])
         
     return None
+
+def _check_straight(cards: list[Card]) -> tuple[HandRank, list[int]] | None:
+    
+    unique_ranks = sorted(set(card.rank for card in cards), reverse=True)
+
+    if len(unique_ranks) < 5:
+        return None
+    
+    for i in range(len(unique_ranks) - 4):
+        if unique_ranks[i] - unique_ranks[i+4] == 4:
+            return (HandRank.STRAIGHT, unique_ranks[i:i+5])
+   
+    ace_low_straight = {14, 2, 3, 4, 5}
+    if ace_low_straight.issubset(set(unique_ranks)):
+        return (HandRank.STRAIGHT, [5, 4, 3, 2, 1])
+    
+    return None
