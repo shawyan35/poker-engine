@@ -98,9 +98,9 @@ def _check_full_house(cards: list[Card]) -> tuple[HandRank, list[int]] | None:
     rank_counts = Counter(card.rank for card in cards)
     frequencies = sorted(rank_counts.values(), reverse=True)
 
-    if frequencies[:2] == [3, 2]:
+    if frequencies[0] == 3 and frequencies[1] >= 2:
         three_of_a_kind_rank = [rank for rank, count in rank_counts.items() if count == 3][0]
-        pair_rank = [rank for rank, count in rank_counts.items() if count == 2][0]
+        pair_rank = [rank for rank, count in rank_counts.items() if count >= 2 and rank != three_of_a_kind_rank][0]
 
         return(HandRank.FULL_HOUSE, [three_of_a_kind_rank, pair_rank])
     
