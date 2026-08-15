@@ -23,8 +23,6 @@ def simulate(hand1: list[Card], hand2: list[Card], board: list[Card], num_simula
         player1_cards = hand1 + board + newly_dealt_cards
         player2_cards = hand2 + board + newly_dealt_cards
 
-        print(player1_cards)
-
         result1 = evaluate(player1_cards)
         result2 = evaluate(player2_cards)
 
